@@ -1,61 +1,55 @@
-# Customer Churn Risk Prediction
+# Customer Churn Risk
 
-A machine learning project to predict customer churn risk using Logistic Regression.
-
-## Overview
-
-This project builds a predictive model to identify customers at risk of churning. It includes comprehensive preprocessing, model training, evaluation metrics, and feature importance analysis.
-
-## Features
-
-- **Data Preprocessing**: Data cleaning and feature engineering
-- **Model**: Logistic Regression for binary classification
-- **Train/Test Split**: Proper data partitioning for model evaluation
-- **Evaluation Metrics**:
-  - Accuracy
-  - Precision
-  - Recall
-  - F1 Score
-  - ROC-AUC Score
-- **Visualizations**: Confusion matrix and feature importance plots
-- **Feature Analysis**: Coefficient interpretation for model explainability
+A small machine-learning project that explores customer churn data and trains a logistic regression classifier to estimate churn risk.
 
 ## Project Structure
 
-```
+```text
 customer-churn-risk/
-├── src/                    # Source code
-│   └── churn_risk.py      # Main model implementation
-├── data/                   # Datasets
-├── notebooks/              # Jupyter notebooks for analysis
-├── results/                # Model outputs and visualizations
-└── requirements.txt        # Python dependencies
+├── data/
+│   └── dataset_01_customer_churn_risk.xlsx
+├── src/
+│   └── churn_risk.py
+├── notebooks/
+│   └── churn_risk_analysis.ipynb
+├── .vscode/
+│   ├── extensions.json                    # recommended VS Code extensions
+│   ├── settings.json                      # Excel and Python workspace settings
+│   └── tasks.json                         # run analysis or open the workbook
+├── requirements.txt
+└── README.md
 ```
 
-## Requirements
+## Setup
 
-See `requirements.txt` for dependencies. Install with:
+Create and activate a virtual environment, then install the dependencies:
 
 ```bash
+python -m venv .venv
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-## Usage
+## Run the Analysis
 
-Run the main model:
+Run the script from the repository root:
 
 ```bash
 python src/churn_risk.py
 ```
 
-## Results
+Or open `notebooks/churn_risk_analysis.ipynb` in Jupyter or VS Code and run the cells.
 
-Model performance and visualizations are saved to the `results/` directory.
+The dataset is expected to contain a `target` column and numeric predictor columns. The script reads the `Sheet1` worksheet, prints evaluation metrics and feature coefficients, and displays a confusion matrix.
 
-## License
+## Excel in VS Code
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+When this folder is opened in VS Code, install the recommended extensions when prompted. The Excel Viewer extension previews `.xlsx` files inside VS Code, while Python and Jupyter support the analysis workflow. The workspace is configured to route `.xlsx` files to the Excel Viewer instead of the raw text editor.
 
-## Author
+Use the Command Palette and run either task:
 
-Abdul Akram
+- `Tasks: Run Task` > `Excel: open dataset` opens the workbook in the system Excel application.
+- `Tasks: Run Test Task` runs `src/churn_risk.py` from the repository root.
+
+The current file ending in `conversion-error.xlsx` is a quarantined copy of the malformed source. Replace it with the original dataset before running the model.
